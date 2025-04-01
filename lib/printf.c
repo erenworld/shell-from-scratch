@@ -5,8 +5,7 @@
 ** project
 */
 
-#include "libmy.h"
-#include <stdarg.h>
+#include "../include/my.h"
 
 void verify_type(char c, va_list *args)
 {

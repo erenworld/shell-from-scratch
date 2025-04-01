@@ -5,13 +5,12 @@
 ** strchr
 */
 
-#include "libmy.h"
-#include <stdlib.h>
+#include "../include/my.h"
 
-char *my_strchr(const char *str, int chr)
+char *my_strchr(const char *str, int searched_char)
 {
     while (*str != '\0') {
-        if (*str == chr) {
+        if (*str == searched_char) {
             return (char *)str;
         }
         str++;

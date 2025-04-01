@@ -1,12 +1,11 @@
 /*
-** EPITECH PROJECT, 2025
-** B-PSU-200-NCY-2-1-minishell2-eren.turkoglu
+** EPITECH PROJECT, 2024
+** day07
 ** File description:
-** split_string
+** str to word array
 */
 
-#include <stdlib.h>
-#include "libmy.h"
+#include "../include/my.h"
 
 int is_delimiter(char c, char delimiter)
 {

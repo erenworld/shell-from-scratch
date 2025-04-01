@@ -5,7 +5,7 @@
 ** project
 */
 
-#include "libmy.h"
+#include "../include/my.h"
 
 int my_isalpha(char s)
 {

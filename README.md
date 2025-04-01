@@ -1,3 +1,5 @@
+![TCSH](https://upload.wikimedia.org/wikipedia/commons/1/1f/Tcsh_ejecut%C3%A1ndose_en_escritorio_Mac_OSX.png)
+
 # Minishell
 
 Minishell est une implémentation simplifiée d'un shell UNIX, développé en C dans le cadre du projet Epitech. Il gère les commandes de base ainsi que plusieurs built-ins.
@@ -13,15 +15,6 @@ Minishell est une implémentation simplifiée d'un shell UNIX, développé en C 
   - `env` : afficher les variables d'environnement
   - `unsetenv` : supprimer une variable d'environnement
 - Gestion des variables d'environnement avec une liste chaînée
-
-## Gestion des séparateurs de commandes
-
-- `<` : redirection d'entrée
-- `>` : redirection de sortie
-- `|` : pipe entre commandes
-- `;` : séparation de commandes
-- `<<` : redirection d'entrée avec here-document
-- `>>` redirection de sortie avec append
 
 ## Compilation
 
@@ -49,5 +42,5 @@ $ exit
 
 ## Auteur
 
-Eren Turkoglu - PGE 1
+Eren Turkoglu - PGE 1 
 Projet réalisé dans le cadre de l'école `Epitech`

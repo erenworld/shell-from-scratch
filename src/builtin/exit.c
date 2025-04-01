@@ -5,8 +5,7 @@
 ** exit
 */
 
-#include "../../lib/libmy.h"
-#include <stdlib.h>
+#include "../../include/my.h"
 
 int my_exit(char *arg)
 {

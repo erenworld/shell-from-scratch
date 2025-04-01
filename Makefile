@@ -5,6 +5,7 @@
 ## Makefile
 ##
 
+
 GREEN=\033[0;32m
 BLUE=\033[0;34m
 YELLOW=\033[0;33m
@@ -16,50 +17,44 @@ CC = gcc
 
 CFLAGS = -W -Wall -Wextra -std=gnu99
 
-SRC = ./src/main.c \
+SRC	=	./src/main.c \
+	./src/split_args.c \
 	./src/check_signal.c \
-	./src/tcsh_loop.c \
-	./src/tcsh_parse.c \
-	./src/tcsh_exec.c \
-	./src/exec_path.c \
-	./src/redir_right.c \
-	./src/tcsh_free_tokens.c \
-	./src/utils/remove_quotes.c \
-	./src/utils/skip_space.c \
-	./src/utils/getline.c \
-	./src/utils/free_tab.c \
-	./src/env/free_env.c \
-	./src/env/get_env.c \
-	./src/env/find_key.c \
-	./src/env/free_env_array.c \
-	./src/env/list_to_array.c \
-	./src/env/print_env.c \
-	./src/env/setenv.c \
-	./src/env/unsetenv.c \
-	./src/env/error_handling_env.c \
-	./src/builtin/exit.c \
-	./src/builtin/cd.c \
+	./src/is_args_setenv.c \
+	./src/t_free_env_array.c \
+	./src/check_cmd_exist.c \
+	./src/BUILTIN/getenv.c \
+	./src/BUILTIN/unsetenv.c \
+	./src/BUILTIN/printenv.c \
+	./src/BUILTIN/setenv.c \
+	./src/BUILTIN/free_env.c \
+	./src/getline.c \
+	./src/t_array.c \
+	./src/t_loop.c \
+	./src/t_exec.c \
+	./src/t_proc.c \
+	./src/t_childproc.c \
+	./src/free_tokens.c \
+	./src/BUILTIN/cd.c \
+	./src/BUILTIN/cd_main.c \
+	./src/BUILTIN/exit.c \
 	./lib/my_putchar.c \
 	./lib/my_putnbr.c \
 	./lib/my_putstr.c \
 	./lib/my_strcat.c \
 	./lib/my_strchr.c \
 	./lib/my_strcmp.c \
-	./lib/my_strncmp.c \
 	./lib/my_strcpy.c \
-	./lib/my_strstr.c \
 	./lib/my_strdup.c \
 	./lib/my_strncpy.c \
 	./lib/my_strlen.c \
+	./lib/my_atoi.c \
 	./lib/my_isalpha.c \
-	./lib/printf.c \
 	./lib/split_string.c \
 	./lib/my_isspace.c \
-	./lib/my_stdlib/realloc.c \
-	./lib/my_stdlib/my_atoi.c \
-	./lib/my_stdlib/memcpy.c
+	./lib/printf.c \
 
-OBJ = $(SRC:.c=.o)
+OBJ	=	$(SRC:.c=.o)
 
 all: $(NAME)
 	@echo -e "$(GREEN)Compilation Successful !$(RESET)"
@@ -68,8 +63,9 @@ all: $(NAME)
 	@echo -e "$(YELLOW)Compilation of $<...$(RESET)"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
+
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) -o $(NAME) -fsanitize=address -g
+	$(CC) $(OBJ) -o $(NAME)
 	@echo -e "$(BLUE)Exec created: $(NAME)$(RESET)"
 
 clean:
@@ -80,7 +76,6 @@ clean:
 	rm -f *.gcno *.gcda a.out
 
 fclean: clean
-	rm -f $(NAME)
 
 re: fclean all
 

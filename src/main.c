@@ -1,32 +1,25 @@
 /*
 ** EPITECH PROJECT, 2025
-** B-PSU-200-NCY-2-1-minishell2-eren.turkoglu
+** SHELL
 ** File description:
 ** main
 */
 
-#include <stdio.h>
-#include <string.h>
-#include <stdbool.h>
-#include <stdlib.h>
-#include "../include/parser.h"
-#include "../include/colors.h"
-#include "../lib/libmy.h"
-#include "env/env.h"
+#include "../include/my.h"
 
-void parse_env(env_list_t **head, const char *envstr)
+void parse_env(env_list_t **env, const char *envstr)
 {
     char *equal = my_strchr(envstr, '=');
-    char *name = NULL;
+    char *name;
 
-    if (equal == NULL)
+    if (!equal)
         return;
     name = malloc(strlen(envstr) + 1);
-    if (name == NULL)
+    if (!name)
         return;
     my_strcpy(name, envstr);
     name[equal - envstr] = '\0';
-    my_setenv(head, name, equal + 1);
+    my_setenv(env, name, equal + 1);
     free(name);
 }
 

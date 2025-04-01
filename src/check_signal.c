@@ -1,43 +1,45 @@
 /*
 ** EPITECH PROJECT, 2025
-** B-PSU-200-NCY-2-1-minishell2-eren.turkoglu
+** MINISHELL
 ** File description:
 ** check_signal
 */
+#include "../include/my.h"
 
-#include "../include/parser.h"
-#include "../lib/libmy.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <sys/wait.h>
-#include <signal.h>
-#include <string.h>
-
-int signal_switch(int signal, int core)
+int signal_switch(int signal_number)
 {
-    char *signal_msg = strsignal(signal);
-
-    if (!signal_msg)
-        signal_msg = "Unknown signal";
-    write(2, signal_msg, my_strlen(signal_msg));
-    if (core)
-        write(2, " (core dumped)", 14);
-    write(2, "\n", 1);
-    return 128 + signal;
+    switch (signal_number) {
+        case SIGSEGV:
+            write(2, "Segmentation fault\n", 19);
+            return 139;
+        case SIGFPE:
+            write(2, "Floating point exception\n", 25);
+            return 136;
+        case SIGBUS:
+            write(2, "Bus error\n", 10);
+            return 138;
+        case SIGTRAP:
+            write(2, "Trace trap\n", 11);
+            return 133;
+        default:
+            write(2, "Terminated by signal\n", 21);
+            return 128 + signal_number;
+        }
 }
 
-int check_signal(int *status)
+int check_signal(int status)
 {
-    int signal;
+    int signal_number;
 
-    if (WIFEXITED(*status))
-        return WEXITSTATUS(*status);
-    if (WIFSIGNALED(*status)) {
-        signal = WTERMSIG(*status);
-        return signal_switch(signal, WCOREDUMP(*status));
+    if (WIFEXITED(status)) {
+        return WEXITSTATUS(status);
     }
-    if (WIFSTOPPED(*status))
-        return WSTOPSIG(*status);
+    if (WIFSIGNALED(status)) {
+        signal_number = WTERMSIG(status);
+        return signal_switch(signal_number);
+    }
+    if (WIFSTOPPED(status)) {
+        return WSTOPSIG(status);
+    }
     return 0;
 }

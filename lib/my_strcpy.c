@@ -4,7 +4,7 @@
 ** File description:
 ** Copy a string into another string
 */
-#include "libmy.h"
+#include "../include/my.h"
 
 char *my_strcpy(char *dest, char const *src)
 {

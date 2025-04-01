@@ -4,8 +4,7 @@
 ** File description:
 ** project
 */
-#include "libmy.h"
-#include <unistd.h>
+#include "../include/my.h"
 
 void my_putchar_error(char c)
 {
