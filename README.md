@@ -1,4 +1,3 @@
-![TCSH](https://upload.wikimedia.org/wikipedia/commons/1/1f/Tcsh_ejecut%C3%A1ndose_en_escritorio_Mac_OSX.png)
 
 # Minishell
 
