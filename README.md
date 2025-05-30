@@ -1,6 +1,6 @@
 # Minishell
 
-Minishell est une implémentation simplifiée d'un shell UNIX, développé en C dans le cadre du projet Epitech. Il gère les commandes de base ainsi que plusieurs built-ins.
+Minishell est une implémentation simplifiée d'un shell UNIX, développé en C. Il gère les commandes de base ainsi que plusieurs built-ins.
 
 ## Fonctionnalités
 
@@ -46,5 +46,4 @@ $ exit
 
 ## Auteur
 
-Eren Turkoglu - PGE 1 
-Projet réalisé dans le cadre de l'école `Epitech`
+Eren Turkoglu
